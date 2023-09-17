@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://logeshwars15:iM7QQEkOxyIjEqUu@cluster0.dxrcmsf.mongodb.net/url-shortner"
+}
+
+model shortUrl {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  rawUrl String
+  shortUrlId String
+  userId String
+  clickCount Int
+  name String
+}
+
+model linkTree {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  rawUrl String
+  name String
+  userId String
+  clickCount Int
+}
